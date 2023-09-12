@@ -26,7 +26,7 @@ under the License.
     <artifactId>hive-catalog-shade</artifactId>
 
     <properties>
-        <hive.version>2.2.0-TBDS-5.2.0.1</hive.version>
+        <hive.version>3.1.2-TBDS-5.2.0.1</hive.version>
         <!--We rewritten some hive methods, so we need to keep the same hadoop version as the main library-->
         <hadoop.version>2.7.2-TBDS-5.2.0.1</hadoop.version>
         <hive.storage.api.version>2.8.1</hive.storage.api.version>
@@ -310,6 +310,50 @@ under the License.
                     <artifactId>RoaringBitmap</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-standalone-metastore</artifactId>
+            <version>${hive.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.hadoop</groupId>
+                    <artifactId>hadoop-hdfs</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.hadoop</groupId>
+                    <artifactId>hadoop-common</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-1.2-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.dropwizard.metrics</groupId>
+                    <artifactId>metrics-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.dropwizard.metrics</groupId>
+                    <artifactId>metrics-jvm</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.dropwizard.metrics</groupId>
+                    <artifactId>metrics-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-classification</artifactId>
+            <version>${hive.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.paimon</groupId>
