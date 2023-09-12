@@ -20,15 +20,15 @@ under the License.
     <parent>
         <groupId>org.apache.doris</groupId>
         <artifactId>doris-shade</artifactId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.0-TBDS-SNAPSHOT</version>
     </parent>
 
     <artifactId>hive-catalog-shade</artifactId>
 
     <properties>
-        <hive.version>3.1.3</hive.version>
+        <hive.version>2.2.0-TBDS-5.2.0.1</hive.version>
         <!--We rewritten some hive methods, so we need to keep the same hadoop version as the main library-->
-        <hadoop.version>3.3.5</hadoop.version>
+        <hadoop.version>2.7.2-TBDS-5.2.0.1</hadoop.version>
         <hive.storage.api.version>2.8.1</hive.storage.api.version>
         <iceberg-hive-metastore.version>1.1.0</iceberg-hive-metastore.version>
         <iceberg.version>1.1.0</iceberg.version>
@@ -312,50 +312,6 @@ under the License.
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.hive</groupId>
-            <artifactId>hive-standalone-metastore</artifactId>
-            <version>${hive.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.hadoop</groupId>
-                    <artifactId>hadoop-hdfs</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.hadoop</groupId>
-                    <artifactId>hadoop-common</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-1.2-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>io.dropwizard.metrics</groupId>
-                    <artifactId>metrics-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>io.dropwizard.metrics</groupId>
-                    <artifactId>metrics-jvm</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>io.dropwizard.metrics</groupId>
-                    <artifactId>metrics-json</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hive</groupId>
-            <artifactId>hive-classification</artifactId>
-            <version>${hive.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.paimon</groupId>
             <artifactId>paimon-hive-connector-3.1</artifactId>
             <version>${paimon-hive-metastore.version}</version>
@@ -489,4 +445,18 @@ under the License.
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>tbds</id>
+            <url>https://tbdsrepo.cloud.tencent.com/repository/tbds/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
 </project>
