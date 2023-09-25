@@ -22,7 +22,7 @@ under the License.
     <parent>
         <groupId>org.apache.doris</groupId>
         <artifactId>doris-shade</artifactId>
-        <version>1.0.5-SNAPSHOT</version>
+      <version>1.0.0-GA</version>
     </parent>
 
     <artifactId>hive-shade-3</artifactId>
@@ -306,6 +306,7 @@ under the License.
                                         <exclude>META-INF/*.SF</exclude>
                                         <exclude>META-INF/*.DSA</exclude>
                                         <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>**/META-INF/maven/**</exclude>
                                     </excludes>
                                 </filter>
                             </filters>
@@ -335,6 +336,33 @@ under the License.
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>clean-meta-inf-maven</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration>
+                            <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                            <filesets>
+                                <fileset>
+                                    <directory>${project.build.outputDirectory}/META-INF/maven</directory>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
         </plugins>
     </build>
 </project>
