@@ -21,10 +21,10 @@ under the License.
     <parent>
         <groupId>org.apache.doris</groupId>
         <artifactId>doris-shade</artifactId>
-        <version>1.0.0-TBDS-SNAPSHOT</version>
+        <version>2.1.0-TBDS-SNAPSHOT</version>
     </parent>
     <artifactId>thrift-shade-0.13</artifactId>
-    <version>1.0.0-TBDS-SNAPSHOT</version>
+    <version>2.1.0-TBDS-SNAPSHOT</version>
     <properties>
         <libethrift.version>0.13.0</libethrift.version>
     </properties>
